@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-display: "Barlow Condensed", "Barlow", sans-serif;
+}
+
+/* Semantic tokens; utilities like bg-paper / text-ink read these, so no dark: variants are needed. */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-court: var(--court);
+  --color-on-court: var(--on-court);
+  --color-shuttle: var(--shuttle);
+  --color-win: var(--win);
+  --color-loss: var(--loss);
+}
+
+:root {
+  color-scheme: light;
+  --paper: #eaf0f6; --card: #ffffff; --ink: #0e1b2b;
+  --court: #1d4e89; --on-court: #ffffff;
+  --shuttle: #f2c94c; --win: #1f8a5b; --loss: #d64545;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #0a1220; --card: #121c2f; --ink: #e8eef7;
+  --court: #5b9be6; --on-court: #07111f;
+  --shuttle: #f2c94c; --win: #3ecf93; --loss: #ff7b7b;
+}
+
+body { @apply bg-paper font-sans text-ink antialiased; }
+:focus-visible { outline: 3px solid var(--shuttle); outline-offset: 2px; }
