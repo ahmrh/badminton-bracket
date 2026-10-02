@@ -5,7 +5,7 @@ import { useSession } from '../stores/session'
 const s = useSession()
 const text = ref('')
 const format = ref('doubles')
-const courts = ref(2)
+const courts = ref(1)
 
 // one name per line, case-insensitive de-dupe
 const names = computed(() => [...new Map(
@@ -23,7 +23,7 @@ function go() {
   <section class="mx-auto max-w-xl space-y-5 rounded-lg bg-card p-5 shadow-sm ring-1 ring-court/15">
     <div>
       <label for="players" class="mb-1 block font-semibold">Players (one name per line)</label>
-      <textarea id="players" v-model="text" rows="8" placeholder="Alice&#10;Budi&#10;Citra&#10;Dewi"
+      <textarea id="players" v-model="text" rows="8" placeholder="Alief&#10;Basuki&#10;Candra&#10;Dredge"
         class="w-full rounded-md border border-ink/20 bg-paper p-3 text-lg"></textarea>
       <p class="mt-1 text-sm text-ink/60">
         {{ names.length }} {{ names.length === 1 ? 'player' : 'players' }}
